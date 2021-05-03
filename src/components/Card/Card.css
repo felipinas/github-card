@@ -1,0 +1,32 @@
+.card {
+    width: 100%;
+
+    background: white;
+    border: 1px solid #A6A6A6;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 20px 24px;
+}
+
+.card-pic {
+    width: 100px;
+    height: 100px;
+
+    margin-right: 16px;
+
+    border-radius: 50%;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.card-names h1 {
+    font-weight: 700;
+    color: #1E2228;
+}
+
+.card-names span {
+    color: rgba(142, 142, 142, 0.5);
+}

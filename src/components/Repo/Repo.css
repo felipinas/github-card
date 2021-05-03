@@ -1,0 +1,27 @@
+.repo {
+    width: 100%;
+    padding: 12px 22px;
+    margin-bottom: 18px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    border-radius: 8px;
+    transition: 0.5s;
+}
+.repo:hover {
+    transform: scale(1.02);
+}
+
+.repo h1 {
+    text-decoration: none;
+    font-size: 1rem;
+
+    color: #1E2228;
+}
+.repo:hover h1 {
+    text-decoration: underline;
+}

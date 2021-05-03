@@ -1,0 +1,14 @@
+main {
+    margin: -32px auto 0px auto !important;
+}
+
+main #repo-main-title {
+    color: #1E2228;
+    font-size: 1.5rem;
+
+    margin: 28px 0px 18px 0px;
+}
+
+main ul {
+    list-style: none;
+}
