@@ -45,4 +45,7 @@
 
         margin: 10px 0;
     }
+    .card-names h1 {
+        text-align: center;
+    }
 }
