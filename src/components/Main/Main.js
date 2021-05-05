@@ -23,13 +23,9 @@ function Main() {
     setRepos(res.data);
   };
 
-  const catchUserData = user => {
-    catchUser(user);
-    catchRepos(user);
-  };
-
   useEffect( () => {
-    catchUserData(userName)
+    catchUser(userName);
+    catchRepos(userName);
   }, [userName]);
 
   const changeUserName = () => setUserName(input.value);
