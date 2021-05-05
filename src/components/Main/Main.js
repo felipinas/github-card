@@ -1,54 +1,70 @@
 import { React, useState, useEffect } from 'react';
+import { Card, Repo } from "../";
 import axios from 'axios';
-import { Card, Repo } from "../"; 
 
 import './Main.css';
+import search from '../assets/search.svg';
 
 function Main() {
+
   const [userData, setUserData] = useState([]);
   const [repos, setRepos] = useState([]);
+  const [userName, setUserName] = useState("felipinas");
   
-  const catchUserData = async () => {
-    const res = await axios.get("https://api.github.com/users/felipinas");
+  const input = document.querySelector("input");
+
+  const catchUser = async user => {
+    const res = await axios.get(`https://api.github.com/users/${user}`);
     setUserData(res.data);
   };
 
-  const catchRepos = async () => {
-    const res = await axios.get("https://api.github.com/users/felipinas/repos");
+  const catchRepos = async user => {
+    const res = await axios.get(`https://api.github.com/users/${user}/repos`);
     setRepos(res.data);
   };
 
-  useEffect( () => {
-    catchUserData();
-  }, []);
+  const catchUserData = user => {
+    catchUser(user);
+    catchRepos(user);
+  };
 
   useEffect( () => {
-    catchRepos();
-  }, []);
+    catchUserData(userName)
+  }, [userName]);
 
+  const changeUserName = () => setUserName(input.value);
   const { avatar_url, name, login } = userData;
 
   return (
-      <main className="container">
+    <main className="container">
 
-          <Card
-          image={avatar_url}
-          name={name}
-          login={login}
-          />
+      <div id="input-div">
+        <input type="text" placeholder="seu nickname aqui"/>
 
-          <h1 id="repo-main-title">Repositórios</h1>
+        <button onClick={changeUserName}>
+          <img src={search} alt="search"/>
+        </button>
+      </div>
 
-          <ul>
-              {
-                repos.map( ( { id, name, html_url} ) => <li key={id}><Repo name={name} url={html_url} /></li>
-                )
-              }
-          </ul>
+      <Card
+      image={avatar_url}
+      name={name}
+      login={login}
+      />
 
-          
+      <h1 id="repo-main-title">Repositórios</h1>
 
-      </main>
+      <ul>
+        {
+          repos.map( ( { id, name, html_url } ) =>
+          <li key={id}>
+            <Repo name={name} url={html_url}/>
+          </li>
+          )
+        }
+      </ul>
+
+    </main>
   );
 }
 

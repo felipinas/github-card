@@ -1,5 +1,5 @@
 main {
-    margin: -32px auto 0px auto !important;
+    margin: -100px auto 0px auto !important;
 }
 
 main #repo-main-title {
@@ -11,4 +11,43 @@ main #repo-main-title {
 
 main ul {
     list-style: none;
+}
+
+main #input-div {
+    display: flex;
+
+    margin-bottom: 32px;
+}
+main #input-div input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+
+    font-family: "Inter";
+
+    border-radius: 8px 0px 0px 8px;
+
+    padding: 0px 12px;
+}
+main #input-div button {
+    width: 50px;
+    height: 50px;
+
+    background: rgba(255, 255, 255, 0.3);
+
+    border: none;
+    border-radius: 0px 8px 8px 0px;
+
+    cursor: pointer;
+    transition: .3s;
+}
+main #input-div button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+main #input-div button img {
+    width: 16px;
 }
