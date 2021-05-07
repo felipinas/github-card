@@ -29,7 +29,7 @@ function Main() {
   }, [userName]);
 
   const changeUserName = () => setUserName(input.value);
-  const { avatar_url, name, login } = userData;
+  const { html_url, avatar_url, name, login } = userData;
 
   return (
     <main className="container">
@@ -43,6 +43,7 @@ function Main() {
       </div>
 
       <Card
+      profileUrl={html_url}
       image={avatar_url}
       name={name}
       login={login}

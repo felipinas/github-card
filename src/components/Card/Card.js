@@ -4,6 +4,7 @@ import './Card.css';
 
 function Card(props) {
   return (
+    <a href={props.profileUrl} target="_blank" rel="noreferrer">
       <div className="card">
           <div
           className="card-pic"
@@ -20,6 +21,7 @@ function Card(props) {
               <span>{props.login}</span>
           </div>
       </div>
+    </a> 
   );
 }
 
